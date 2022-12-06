@@ -107,6 +107,11 @@ def run_epoch(train, start_kl_weight, delta_kl_weight, NLL_samples, ds, steps=-1
 
     return total_loss, avg_kl, total_log_likelihood, time.time()-start_time
 
+def generate_samples(lengths, temp=1.0, argmax_x=True):
+    generation = model.generate(lengths, temp, argmax_x)
+    return generation
+
+
 # Setup
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -175,6 +180,15 @@ if args.evaluate_only:
 
     test_loss, test_kl, test_LL, test_time = run_epoch(False, 1.0, 0.0, args.nll_samples, test_iter)
     print('test loss: %.5f, test NLL (%d): %.5f, test kl: %.5f, test time: %.2fs' % (test_loss, args.nll_samples, -test_LL, test_kl, test_time))
+
+    if not args.generation:
+        sys.exit()
+
+# Generation
+if args.generation:
+    lengths = torch.tensor([50, 30, 15, 10, 5]).to(device='cuda')
+    z = generate_samples(lengths)
+    np.savetxt(args.load_dir+'/generative_text.txt', z.cpu().numpy())
 
     sys.exit()
 

@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from torch.distributions import Categorical
+from torch.distributions import Categorical, Bernoulli
 import torch.nn.functional as F
 
 import math

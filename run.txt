@@ -1,0 +1,13 @@
+# 1st model training and testing
+
+python main.py --dataset ptb --run_name charptb_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100
+
+python main.py --dataset ptb --run_name charptb_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100 --load_dir output/charptb_discreteflow_af-af/saves/end --evaluate_only
+
+val loss: 1.44661, val NLL (15): 1.39678, val kl: 1.39884, val time: 30.36s
+test loss: 1.42068, test NLL (15): 1.37086, test kl: 1.37299, test time: 33.90s
+
+python main.py --dataset ptb --run_name charptb_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100 --load_dir output/charptb_discreteflow_af-af/saves/end --evaluate_only --generation
+
+# 2nd and 3rd model training
+

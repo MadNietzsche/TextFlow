@@ -9,6 +9,7 @@ def parse_args():
     parser.add_argument('--run_name', type=str, default='charptb_AF-AF')
     parser.add_argument('--output_dir', type=str, default='output')
     parser.add_argument('--load_dir', type=str)
+    parser.add_argument('--generation', action='store_true')
     parser.add_argument('--evaluate_only', action='store_true')
     parser.add_argument('--dataset', type=str, default='ptb')
     parser.add_argument('--nll_every', type=int, default=5)
@@ -64,6 +65,9 @@ def parse_args():
 
     ## Likelihood parameters
     parser.add_argument('--gen_bilstm_layers', type=int, default=2)
+
+    ## Generation parameters
+    #parser.add_argument('--gen_len', type=int, default=35)
 
     args = parser.parse_args()
 
