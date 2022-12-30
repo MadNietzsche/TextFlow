@@ -4,6 +4,8 @@ __pycache__
 *.png
 *.pdf
 output
-
+.idea
+data/
+img/
 slurm_scripts
 *.out

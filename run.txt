@@ -10,4 +10,11 @@ test loss: 1.42068, test NLL (15): 1.37086, test kl: 1.37299, test time: 33.90s
 python main.py --dataset ptb --run_name charptb_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100 --load_dir output/charptb_discreteflow_af-af/saves/end --evaluate_only --generation
 
 # 2nd and 3rd model training
+# Trump modelling
+python main.py --dataset trump_raw --run_name chartrump-raw_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100
+python main.py --dataset trump --run_name chartrump_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100
 
+python main.py --dataset trump --run_name chartrump_discreteflow_af-af --num_epochs 10 --seed 2001 --ELBO_samples 5 --nll_samples 15 --inp_embedding_size 100 --zsize 10 --hidden_size 100 --p_rnn_units 100 --load_dir output/chartrump_discreteflow_af-af/saves/end --evaluate_only
+
+val loss: 1.41365, val NLL (15): 1.36618, val kl: 1.35925, val time: 53.34s
+test loss: 1.41612, test NLL (15): 1.36842, test kl: 1.36112, test time: 65.97s
